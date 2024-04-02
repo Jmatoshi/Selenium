@@ -6,13 +6,15 @@ import java.util.List;
 
 import java.util.Set;
 
+
+
 import org.openqa.selenium.Alert;
+
 import org.openqa.selenium.JavascriptExecutor;
+
 import org.openqa.selenium.NoAlertPresentException;
 
 import org.openqa.selenium.NoSuchFrameException;
-
-import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
 
@@ -22,18 +24,22 @@ import org.openqa.selenium.support.ui.Select;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CommonMethods extends BaseClass {
+
+
+public class CommonMethods extends BaseClass{
+
+	
 
 	/**
-	 * 
+
 	 * This method clears a text box and sets its text
+
 	 * 
-	 * 
-	 * 
+
 	 * @param element
-	 * 
+
 	 * @param text
-	 * 
+
 	 */
 
 	public static void sendText(WebElement element, String text) {
@@ -44,16 +50,18 @@ public class CommonMethods extends BaseClass {
 
 	}
 
+	
+
 	/**
-	 * 
+
 	 * This methods checks if the radio/check box is enabled, and then clicks on
-	 * 
+
 	 * the element that matches the selected value
-	 * 
+
 	 * @param elementList
-	 * 
+
 	 * @param selectValue
-	 * 
+
 	 */
 
 	public static void clickRadioOrCheckbox(List<WebElement> elementList, String selectValue) {
@@ -61,6 +69,8 @@ public class CommonMethods extends BaseClass {
 		for (WebElement el : elementList) {
 
 			String elementValue = el.getAttribute("value").trim();
+
+			
 
 			if (elementValue.equals(selectValue) && el.isEnabled()) {
 
@@ -74,15 +84,19 @@ public class CommonMethods extends BaseClass {
 
 	}
 
+	
+
 	/**
-	 * 
+
 	 * This method pauses the execution for a certain amount of seconds
-	 * 
+
 	 * @param seconds
-	 * 
+
 	 */
 
 	public static void wait(int seconds) {
+
+		
 
 		try {
 
@@ -96,16 +110,18 @@ public class CommonMethods extends BaseClass {
 
 	}
 
+	
+
 	/**
-	 * 
+
 	 * This method checks if a visible text is found in a drop down and selects it
+
 	 * 
-	 * 
-	 * 
+
 	 * @param element
-	 * 
+
 	 * @param visibleText
-	 * 
+
 	 */
 
 	public static void selectDropdown(WebElement element, String visibleText) {
@@ -124,16 +140,18 @@ public class CommonMethods extends BaseClass {
 
 	}
 
+	
+
 	/**
-	 * 
+
 	 * This method checks if a given index is valid and selects it
-	 * 
+
 	 * if so
-	 * 
+
 	 * @param element
-	 * 
+
 	 * @param index
-	 * 
+
 	 */
 
 	public static void selectDropdown(WebElement element, int index) {
@@ -152,12 +170,14 @@ public class CommonMethods extends BaseClass {
 
 	}
 
+	
+
 	/**
-	 * 
+
 	 * This method switches the focus to an Alert and accepts if found
-	 * 
+
 	 * if not found, NoAlertPresentException is thrown
-	 * 
+
 	 */
 
 	public static void acceptAlert() {
@@ -176,12 +196,14 @@ public class CommonMethods extends BaseClass {
 
 	}
 
+	
+
 	/**
-	 * 
+
 	 * This method dismisses an alert if it's present
-	 * 
+
 	 * if not present, an exception will be thrown
-	 * 
+
 	 */
 
 	public static void dismissAlert() {
@@ -200,19 +222,23 @@ public class CommonMethods extends BaseClass {
 
 	}
 
+	
+
 	/**
-	 * 
+
 	 * This method will return the alert text if the alert present
-	 * 
-	 * if not, null will be returned
-	 * 
+
+	 * if not, null will be returned 
+
 	 * @return
-	 * 
+
 	 */
 
 	public static String getAlertText() {
 
 		String alertText = null;
+
+		
 
 		try {
 
@@ -226,19 +252,25 @@ public class CommonMethods extends BaseClass {
 
 		}
 
+		
+
 		return alertText;
 
 	}
 
+	
+
 	/**
-	 * 
+
 	 * This method sends a text to the alert if present
-	 * 
+
 	 * @param text
-	 * 
+
 	 */
 
 	public static void sendAlertText(String text) {
+
+		
 
 		try {
 
@@ -252,14 +284,16 @@ public class CommonMethods extends BaseClass {
 
 		}
 
+		
+
 	}
 
 	/**
-	 * 
+
 	 * This method switches to a frame using name or id
-	 * 
+
 	 * @param nameOrId
-	 * 
+
 	 */
 
 	public static void switchToFrame(String nameOrId) {
@@ -268,6 +302,8 @@ public class CommonMethods extends BaseClass {
 
 			driver.switchTo().frame(nameOrId);
 
+			
+
 		} catch (NoSuchFrameException e) {
 
 			e.printStackTrace();
@@ -276,12 +312,14 @@ public class CommonMethods extends BaseClass {
 
 	}
 
+	
+
 	/**
-	 * 
+
 	 * This method switches to a frame using index
-	 * 
+
 	 * @param index
-	 * 
+
 	 */
 
 	public static void switchToFrame(int index) {
@@ -290,6 +328,8 @@ public class CommonMethods extends BaseClass {
 
 			driver.switchTo().frame(index);
 
+			
+
 		} catch (NoSuchFrameException e) {
 
 			e.printStackTrace();
@@ -298,12 +338,14 @@ public class CommonMethods extends BaseClass {
 
 	}
 
+	
+
 	/**
-	 * 
+
 	 * This method switches to a frame using a WebElement
-	 * 
+
 	 * @param element
-	 * 
+
 	 */
 
 	public static void switchToFrame(WebElement element) {
@@ -312,6 +354,8 @@ public class CommonMethods extends BaseClass {
 
 			driver.switchTo().frame(element);
 
+			
+
 		} catch (NoSuchFrameException e) {
 
 			e.printStackTrace();
@@ -320,10 +364,12 @@ public class CommonMethods extends BaseClass {
 
 	}
 
+	
+
 	/**
-	 * 
+
 	 * This method switches the focus to a child window
-	 * 
+
 	 */
 
 	public static void switchToChildWindow() {
@@ -331,6 +377,8 @@ public class CommonMethods extends BaseClass {
 		String mainWindow = driver.getWindowHandle();
 
 		Set<String> handles = driver.getWindowHandles();
+
+		
 
 		for (String handle : handles) {
 
@@ -344,12 +392,14 @@ public class CommonMethods extends BaseClass {
 
 	}
 
+	
+
 	/**
-	 * 
+
 	 * This method creates and returns a wait object
-	 * 
+
 	 * @return
-	 * 
+
 	 */
 
 	public static WebDriverWait getWaitObject() {
@@ -360,14 +410,16 @@ public class CommonMethods extends BaseClass {
 
 	}
 
+	
+
 	/**
-	 * 
+
 	 * This method creates a wait object based on a provided seconds to wait
-	 * 
+
 	 * @param secondsToWait
-	 * 
+
 	 * @return
-	 * 
+
 	 */
 
 	public static WebDriverWait getWaitObject(int secondsToWait) {
@@ -378,6 +430,8 @@ public class CommonMethods extends BaseClass {
 
 	}
 
+	
+
 	public static WebElement waitForClickability(WebElement element) {
 
 		return getWaitObject().until(ExpectedConditions.elementToBeClickable(element));
@@ -385,13 +439,13 @@ public class CommonMethods extends BaseClass {
 	}
 
 	/**
-	 * 
+
 	 * waits for the element to be visible
-	 * 
+
 	 * @param element
-	 * 
+
 	 * @return
-	 * 
+
 	 */
 
 	public static WebElement waitForVisibility(WebElement element) {
@@ -399,6 +453,8 @@ public class CommonMethods extends BaseClass {
 		return getWaitObject().until(ExpectedConditions.visibilityOf(element));
 
 	}
+
+	
 
 	public static void click(WebElement element) {
 
@@ -408,70 +464,166 @@ public class CommonMethods extends BaseClass {
 
 	}
 
+	
+
 	/**
-	 * This method wiil cast the driver to a JavaScriptExecutor object and return
-	 * it.
-	 * 
+
+	 * This method will cast the driver to a JavascriptExecutor object and return it.
+
 	 * @return
+
 	 */
 
-	public static JavascriptExecutor getJSObject() {
+	public static JavascriptExecutor getJSObject()
 
-		// JavascriptExecutor js =(JavascriptExecutor) driver
-		// return js
+	{
+
+	//	JavascriptExecutor js = (JavascriptExecutor) driver;
+
+	//	return js;
+
+		
 
 		return (JavascriptExecutor) driver;
 
 	}
 
+	
+
+	
+
 	/**
-	 * this method will click on an element using JavascriptExecutor
+
+	 * This method will click on an element using JavascriptExecutor.
+
 	 * 
+
 	 * @param element
+
 	 */
 
-	public static void jsClick(WebElement element) {
+	public static void jsClick(WebElement element)
+
+	{
+
 		getJSObject().executeScript("arguments[0].click()", element);
+
 	}
 
+	
+
+	
+
 	/**
-	 * this method will scroll the page until a specific element is in view
-	 * 
+
+	 * This method will scroll the page until a specific element is in view.
+
 	 * @param element
+
 	 */
 
-	public static void scrollToElement(WebElement element) {
+	public static void scrollToElement(WebElement element)
+
+	{
+
 		getJSObject().executeScript("arguments[0].scrollIntoView(true)", element);
+
 	}
-	
-	
+
+
+
 	/**
-	 * this method will scroll the page up based on the pixel parameters
+
+	 * This method scrolls the page up based on the pixel parameter.
+
+	 * 
+
 	 * @param pixel
+
 	 */
-	
-	
-	public static void scrollUp(int pixel) 
+
+	public static void scrollUp(int pixel)
+
 	{
+
 		getJSObject().executeScript("window.scrollBy(0,-"+pixel+")");
+
 	}
+
 	
+
 	/**
-	 * this method scrolls the page down based on pixel parameter
+
+	 * This method scrolls the page down based on the pixel parameter.
+
 	 * @param pixel
+
 	 */
-	
-	public static void scrollDown(int pixel) 
+
+	public static void scrollDown(int pixel)
+
 	{
+
 		getJSObject().executeScript("window.scrollBy(0,"+pixel+")");
+
 	}
+
 	
+
 	
-	public static void selectCalendarDate ()
+
+	/**
+
+	 * This method will select a date on a calendar given the List<WebElement> and the date to select.
+
+	 * 
+
+	 * @param elements
+
+	 * @param date
+
+	 */
+
+	public static void selectCalendarDate(List<WebElement> elements, String date)
+
 	{
-		getJSObject().executeScript("window.scrollBy(0,"+pixel+")");
+
+		for(WebElement day : elements)
+
+		{
+
+			if (day.getText().equals(date))
+
+			{
+
+				if(day.isEnabled())
+
+				{
+
+					click(day);
+
+					break;
+
+				}
+
+				else
+
+				{
+
+					System.out.println("This day is not enabled!!!");
+
+					break;
+
+				}
+
+			}
+
+		}
+
+		
+
 	}
-	
+
 	
 
 }
